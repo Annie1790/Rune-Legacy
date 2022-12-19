@@ -1,7 +1,13 @@
-function setup() {
-    const playerName = document.querySelector("[data-ask-name]");
-    const searchParams = new URLSearchParams(window.location.search);
-    playerName.innerText = searchParams.get("name")
+//Called when the button is clicked
+function onOkButtonClicked() {
+    const nameField = document.querySelector("[data-ask-name]");
+    alert(`Welcome ${nameField.value}! Enjoy the game!`);
+    window.location = `/game_main_menu.html?name=${nameField.value}`
 }
-
-window.addEventListener("load", setup)
+//Called when the page is loaded
+function setup() {
+    const okBtn = document.querySelector("[data-ok-button]");
+    okBtn.addEventListener("click", onOkButtonClicked);
+}
+//Register setup to be called when the page have been loaded
+window.addEventListener("load", setup);
