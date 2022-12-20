@@ -8,15 +8,15 @@ class Character {
 
     heal(amount) {
         this.health += amount;
-        this.show();
+        this.updateDisplay();
     }
 
     damage(amount) {
         this.health -= amount;
-        this.show();
+        this.updateDisplay();
     }
 
-    show() {
+    updateDisplay() {
         characterName.innerHTML = this.name;
         characterHealth.innerHTML = this.health;
         characterExperience.innerHTML = this.experience;
@@ -33,7 +33,7 @@ class Event {
         this.option2 = option2;
     }
 
-    show() {
+    updateDisplay() {
         scenarioName.innerHTML = this.name;
         scenarioDescription.innerHTML = this.description;
         option1.innerHTML = this.option1;
@@ -61,7 +61,7 @@ let event2 = new Event("Aniko farts", "Aniko is so digusting she farts a lot. Do
 let eventArray = [event1,event2];
 function selectEvent() {
     let index = Math.floor(Math.random()*eventArray.length);
-    eventArray[index].show()
+    eventArray[index].updateDisplay()
 }
 
 

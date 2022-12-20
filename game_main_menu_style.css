@@ -42,14 +42,28 @@ main > section  {
     background-color: rgba(77, 65, 56, 0.5);
 }
 
+.character-map {
+    grid-column: 1;
+    grid-row: 2;
+    border: 1px solid brown;
+    object-fit: contain;
+    object-position: 100%;
+    min-width: 700px;
+    min-height: 765px;
+}
+
 .character-scenario {
     grid-column: 2 !important;
     grid-row: 2 !important;
+    min-width: 500px;
+    min-height: 765px;
 }
 
 .character-attributes {
     grid-column: 3 !important;
     grid-row: 2 !important;
+    min-width: 150px;
+    min-height: 765px;
 }
 
 .character-inventory {
