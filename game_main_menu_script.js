@@ -103,7 +103,7 @@ let event1 = new Event("You found a cave...",
 
 let event2 = new Event("Will you fight back?",
  "You decide to rest. During the night, someone is trying to attack you.",
-  new EventOption("Figt back!", function() {
+  new EventOption("Fight back!", function() {
     player1.damage(2);
     scenarioDescription.innerHTML = "Your opponent is way stronger than you, however you managed to get out the situation with light wounds."
     player1.gainExperience(1);
