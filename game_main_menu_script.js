@@ -80,6 +80,146 @@ const characterName = document.querySelector("[data-character-name]");
 const characterHealth = document.querySelector("[data-health]");
 const characterExperience = document.querySelector("[data-experience]");
 const characterLevel = document.querySelector("[data-level]");
+const map = document.querySelector("[data-map]");
+
+const canalOutpost = 
+    {
+      topLeft: {
+        x: 418,
+        y: 520,
+      },
+      bottomRight: {
+        x: 597,
+        y: 557,
+      },
+      action: function () {
+        console.log("canal Outpost");
+      },
+    };
+
+    const Eklesa = 
+    {
+        topLeft: {
+          x: 333,
+          y: 293,
+        },
+        bottomRight: {
+          x: 415,
+          y: 315,
+        },
+        action: function () {
+          console.log("Eklesa");
+        },
+      };
+
+    const magicForest = 
+    {
+        topLeft: {
+          x: 164,
+          y: 115,
+        },
+        bottomRight: {
+          x: 333,
+          y: 135,
+        },
+        action: function () {
+          console.log("magic forest");
+        },
+      };
+
+      const Onavale = 
+      {
+        topLeft: {
+          x: 101,
+          y: 190,
+        },
+        bottomRight: {
+          x: 205,
+          y: 210,
+        },
+        action: function () {
+          console.log("Onavale");
+        },
+      };
+
+      const beastField = 
+      {
+        topLeft: {
+          x: 153,
+          y: 386,
+        },
+        bottomRight: {
+          x: 300,
+          y: 409,
+        },
+        action: function () {
+          console.log("beast field");
+        },
+      };
+
+      const Tont = 
+      {
+        topLeft: {
+          x: 357,
+          y: 623,
+        },
+        bottomRight: {
+          x: 422,
+          y: 643,
+        },
+        action: function () {
+          console.log("Tont");
+        },
+      };
+
+    const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
+
+
+
+map.addEventListener("click", function (event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+
+    onMapClicked({x, y})
+})
+
+map.addEventListener("mousemove", function(event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+    console.log(event)
+
+    if (findAreaByPoint({x,y}) !== undefined) {
+        event.target.style.cursor = "pointer";
+    } else {
+        event.target.style.cursor = "default";
+    }
+})
+
+function findAreaByPoint(point) {
+    return locationsArray.find((mapArea) => {
+      return (
+        mapArea.topLeft.x <= point.x &&
+        mapArea.bottomRight.x >= point.x &&
+        mapArea.topLeft.y <= point.y &&
+        mapArea.bottomRight.y >= point.y
+      );
+    });
+  }
+
+  function onMapClicked(point) {
+            console.log(point)
+    // Let's find the area that was clicked.
+    const area = findAreaByPoint(point);
+    if (area !== undefined) {
+      area.action();
+    }
+  }
+
+
+
+
 
 continueButton.addEventListener("click", selectEvent)
 
