@@ -1,123 +1,151 @@
 /*************************************************************************/
-/*Body and header*/
+/*Body, header, fonts*/
+
+@font-face {
+    font-family: baseFont;
+    src: url(./Media/GRECOromanLubedWrestling.ttf);
+}
+
 * {
     box-sizing: border-box;
-  }
+    font-family: baseFont;
+    color: rgb(224, 224, 224);
+}
 
 body {
-    background-image: url(./Media/New\ map.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    backdrop-filter: blur(8px);
+    background: url(./Media/New\ map.jpg) no-repeat center center fixed;
+    backdrop-filter: blur(5px);
     display: grid;
-    grid-template-columns:auto auto auto ;
-    grid-template-rows:auto auto auto auto;
+    grid-template-columns: 100px max-content auto auto 100px;
+    grid-template-rows: auto auto auto auto;
     margin: 0px;
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
+    width: 100vw;
     text-align: center;
     align-items: center;
     gap: 20px;
+
 }
 
 header {
     grid-column-start: 1;
-    grid-column-end: span 3;
+    grid-column-end: span 5;
     grid-row: 1;
-    background: rgba(77, 65, 56, 0.5);
+    background: rgba(51, 47, 44, 0.534);
+    margin-bottom: auto;
+    text-align: left;
 }
 
 /*************************************************************************/
 /*Frames and backgrounds*/
 .frame {
-    border: 1px solid black;
+    border: 1px solid rgba(51, 47, 44, 0.651);
+    backdrop-filter: blur(4px);
+    background-color: rgba(51, 47, 44, 0.534);
+    border-radius: 1em;
 }
-
-
 
 /*************************************************************************/
 /*Character scenario*/
 
 
-#continue {
+#continue-button {
     display: none;
 }
 
 .character-scenario-box {
-    grid-column-start: 2 !important;
-    grid-column-end: 3 !important;
-    grid-row-start: 2 !important;
-    grid-row-end: 3 !important;
-    min-width: 100%;
-    min-height: 100%;
+    flex-grow: 1;
 }
 
 
-.option-continue-buttons {
+.character-scenario-description {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.character-scenario-description > p {
+    width: 70%;
+}
+
+.option-buttons {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 10px;
 }
 
+
+
 /*************************************************************************/
 /*Map*/
-.character-map {
-    grid-column-start: 1 !important;
-    grid-column-end: 2 !important;
+
+.map-box {
+    display: grid;
+    grid-column-start: 2 !important;
+    grid-column-end: 3 !important;
     grid-row-start: 2 !important;
-    grid-row-end:  4 !important;
+    grid-row-end: 4 !important;
     object-fit: contain;
     object-position: 100%;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }
 
-.character-map-flex {
-    
-    
+#map-frame {
+    border: 1px solid rgba(51, 47, 44, 0.651);
+    border-radius: 1em;
 }
 
-.map-buttons {
-    
-   
-}
-
-
-
-#canal-outpost {
-
-}
-    
 
 /*************************************************************************/
 /*Inventory*/
 
 .character-inventory {
-    grid-column-start: 2 !important;
-    grid-column-end: 4 !important;
+    grid-column-start: 3 !important;
+    grid-column-end: 5 !important;
     grid-row-start: 3 !important;
     grid-row-end: 4 !important;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    display: inherit;
 }
 
 /*************************************************************************/
 /*Attributes*/
 
 .character-attributes {
-    grid-column: 3 !important;
+    grid-column: 4 !important;
     grid-row: 2 !important;
-    min-width: 100%;
-    min-height: 100%;
+    width: 150px;
+    height: 100%;
 }
+
 /*************************************************************************/
 /*Footer*/
 footer {
     grid-column-start: 1 !important;
-    grid-column-end: span 3 !important;
-    grid-row: 4  !important;
-    min-width: 100%;
+    grid-column-end: span 5 !important;
+    grid-row: 4 !important;
+    width: 100%;
     background-color: rgba(77, 65, 56, 0.5);
     margin-top: auto;
     text-align: center;
+}
+
+
+.scen-attr-box {
+    grid-column-start: 3 !important;
+    grid-column-end: 5 !important;
+    grid-row-start: 2 !important;
+    grid-row-end: 3 !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
