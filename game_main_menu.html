@@ -15,8 +15,11 @@
         <img src="./media/logo.png" alt="Sword Logo">
     </header>
 
+
+
     <div class="map-box">
         <img data-map id="map-frame" src="./media/small_map.jpg" alt="Game Map">
+        <div data-tooltip-field class="hide map-description frame"></div>
     </div>
 
 
@@ -31,7 +34,7 @@
                     <button data-option-2></button>
                     <button id="continue-button">Continue</button>
                 </div>
-            </div>  
+            </div>
         </div>
 
         <div class="character-attributes frame">
@@ -64,27 +67,7 @@
 </html>
 
 <!---
-
-<div class="canal-outpost-text hide">
-    <p>Text here</p>
-</div>
-
-<div class="Eklesa-text hide">
-    <p>Text here</p>
-</div>
-
-<div class="magic-forest-text hide">
-    <p>Text here</p>
-</div>
-
-<div class="Onavale-text hide">
-    <p>Text here</p>
-</div>
-
-<div class="beast-field-text hide">
-    <p>Text here</p>
-</div>
-
-<div class="Tont-text hide">
-    <p>Text here</p>
-</div>
+    On the mouseover event (or any mouse event) you have access to event.clientX 
+    and event.clientY, which are the X and Y coordinates of the mouse. 
+    Use these coordinates to set the top and left css properties of a fixed 
+    position div.

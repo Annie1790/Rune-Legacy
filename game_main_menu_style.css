@@ -47,6 +47,7 @@ header {
     backdrop-filter: blur(4px);
     background-color: rgba(51, 47, 44, 0.534);
     border-radius: 1em;
+    padding: 0.5em;
 }
 
 /*************************************************************************/
@@ -124,6 +125,14 @@ header {
 #map-frame {
     border: 1px solid rgba(51, 47, 44, 0.651);
     border-radius: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+.map-description {
+    width: 12em;
 }
 
 
