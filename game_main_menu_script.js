@@ -81,7 +81,7 @@ const characterHealth = document.querySelector("[data-health]");
 const characterExperience = document.querySelector("[data-experience]");
 const characterLevel = document.querySelector("[data-level]");
 
-const map = document.querySelector("[data-map]");
+const map = document.querySelector("[data-world-map]");
 const tooltipField = document.querySelector("[data-tooltip-field]");
 
 const canalOutpost =
@@ -132,7 +132,7 @@ const magicForest =
     console.log("magic forest");
   },
 
-  tooltipText: "Place of many secrets. Everyone avoid this place, but no one knows why."
+  tooltipText: "Place of many secrets. People avoid this place, but no one knows why."
 };
 
 const Onavale =
@@ -148,6 +148,8 @@ const Onavale =
   action: function () {
     console.log("Onavale");
   },
+
+  tooltipText: "Onavale is the capital of the island. The town has a healthy economy which is mainly supported by mining, leatherworking and smithing. The main attraction is the watchtower, which was built centruies ago."
 };
 
 const beastField =
@@ -163,6 +165,8 @@ const beastField =
   action: function () {
     console.log("beast field");
   },
+
+  tooltipText: "A messy field of grass is bordered by thriving hedges, bushes, and shrubs. A variety of beastly noises, predominantly those of birds and insects, resonated through the air, and were accompanied by the barrage of noise coming from a dungeon in the distance. "
 };
 
 const Tont =
@@ -178,6 +182,8 @@ const Tont =
   action: function () {
     console.log("Tont");
   },
+
+  tooltipText: "Tont is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life. On the other hand, this is the home of sand people."
 };
 
 const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
