@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: baseFont;
-    src: url(./media/GRECOromanLubedWrestling.ttf);
+    src: url(../media/GRECOromanLubedWrestling.ttf);
 }
 
 * {
@@ -13,7 +13,7 @@
 }
 
 body {
-    background: url(./media/new_map.jpg) no-repeat center center fixed;
+    background: url(../media/eklesa.jpg) no-repeat center center fixed;
     backdrop-filter: blur(5px);
     display: grid;
     grid-template-columns: 100px max-content auto auto 100px;
@@ -82,7 +82,8 @@ header {
 }
 
 .character-scenario-description>p {
-    width: 70%;
+    max-width: 30em;
+    height: 10em;
 }
 
 .option-buttons-box {
