@@ -1,5 +1,3 @@
-//Called when the button is clicked
-
 
 function onOkButtonClicked() {
     const nameField = document.querySelector("[data-ask-name]");
@@ -10,7 +8,6 @@ function onOkButtonClicked() {
         alert("Name must be 7 characters or less!")
     }
 }
-//Called when the page is loaded
 function setup() {
     const okBtn = document.querySelector("[data-ok-button]");
     okBtn.addEventListener("click", onOkButtonClicked);
