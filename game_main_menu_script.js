@@ -98,7 +98,7 @@ const canalOutpost =
     console.log("canal Outpost");
   },
 
-  tooltipText: "whatever",
+  tooltipText: "Canal Outpost lays next to the river Danube along with many monstrous mountains. It is also home to many monsters. Better to come prepared!",
 };
 
 const Eklesa =
@@ -115,7 +115,7 @@ const Eklesa =
     console.log("Eklesa");
   },
 
-  tooltipText: "Despite its strengths and weaknesses, Eklesa is most likely headed towards a prosperous future under the leadership of Ruler Afton. But this remains to be seen."
+  tooltipText: "Despite its strengths and weaknesses, Eklesa is most likely headed towards a prosperous future by its famous traders. However, around the city, the swamps are dangerous. This remains to be seen."
 };
 
 const magicForest =
@@ -131,6 +131,8 @@ const magicForest =
   action: function () {
     console.log("magic forest");
   },
+
+  tooltipText: "Place of many secrets. Everyone avoid this place, but no one knows why."
 };
 
 const Onavale =
