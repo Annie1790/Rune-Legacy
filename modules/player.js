@@ -20,7 +20,31 @@ class Character {
   
     gainExperience(amount) {
       this.experience += amount;
-      if (this.experience >= 10) {
+      if (this.experience >= 100 && this.level === 7) {
+        this.experience = 0;
+        this.levelUp();
+      }
+      else if (this.experience >= 80 && this.level === 6) {
+        this.experience = 0;
+        this.levelUp();
+      }
+      else if (this.experience >= 60 && this.level === 5) {
+        this.experience = 0;
+        this.levelUp();
+      }
+      else if (this.experience >= 45 && this.level === 4) {
+        this.experience = 0;
+        this.levelUp();
+      }
+      else if (this.experience >= 30 && this.level === 3) {
+        this.experience = 0;
+        this.levelUp();
+      }
+      else if (this.experience >= 15 && this.level === 2) {
+        this.experience = 0;
+        this.levelUp();
+      }
+      else if (this.experience >= 5 && this.level === 1) {
         this.experience = 0;
         this.levelUp();
       }

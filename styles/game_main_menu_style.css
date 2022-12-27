@@ -16,7 +16,7 @@ body {
     background: url(../media/eklesa.jpg) no-repeat center center fixed;
     backdrop-filter: blur(5px);
     display: grid;
-    grid-template-columns: 100px max-content auto auto 100px;
+    grid-template-columns: 3em max-content auto auto 3em;
     grid-template-rows: auto auto auto auto;
     margin: 0px;
     height: 100vh;
@@ -48,6 +48,10 @@ header {
     background-color: rgba(51, 47, 44, 0.534);
     border-radius: 1em;
     padding: 0.5em;
+}
+
+.portrait-frame {
+    border: 0.5em double rgba(54, 34, 19, 0.651);
 }
 
 /*************************************************************************/
@@ -158,7 +162,7 @@ header {
     height: 100%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
 .character-attributes>h1 {
@@ -175,12 +179,17 @@ header {
 }
 
 .character-attributes>h2 {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .character-attributes>p {
     font-size: 1.5em;
     font-stretch: narrower;
+}
+
+.character-portrait {
+  width: 150px;
+  height: 150px;
 }
 
 /*************************************************************************/

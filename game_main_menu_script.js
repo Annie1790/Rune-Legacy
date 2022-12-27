@@ -166,8 +166,24 @@ ui.continueButton.addEventListener("click", selectEvent);
 ui.option1.addEventListener("click", actionButtonClickedforOption1);
 ui.option2.addEventListener("click", actionButtonClickedforOption2);
 
+const malePortrait = document.querySelector("[data-portrait-male]");
+const femalePortrait = document.querySelector("[data-portrait-female]");
+const searchParams = new URLSearchParams(window.location.search);
+  ui.characterName.innerText = searchParams.get("name");
+let portrait = searchParams.get("portrait");
+console.log(malePortrait);
+
+function isPortraitVisible() {
+  if (portrait === "female") {
+    femalePortrait.style.display = "block";
+  } else if (portrait === "male") {
+    malePortrait.style.display = "block";
+  } else {
+    return
+  }
+}
+
 window.addEventListener("load", function () {
-  const searchParams = new URLSearchParams(window.location.search);
-  ui.characterName.innerText = searchParams.get("name")
+  isPortraitVisible();
   selectEvent();
 })
