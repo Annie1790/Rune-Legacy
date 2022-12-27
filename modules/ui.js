@@ -11,5 +11,7 @@ const ui = {
     characterLevel: document.querySelector("[data-level]"),
     map: document.querySelector("[data-world-map]"),
     tooltipField: document.querySelector("[data-tooltip-field]"),
+    malePortrait: document.querySelector("[data-portrait-male]"),
+    femalePortrait: document.querySelector("[data-portrait-female]"),
 }
 export default ui;
