@@ -10,7 +10,6 @@
     box-sizing: border-box;
     font-family: baseFont;
     color: rgb(224, 224, 224);
-    outline: 1px solid black;
 }
 
 body {
