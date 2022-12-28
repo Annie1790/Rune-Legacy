@@ -1,3 +1,5 @@
+import ui from "./ui.js";
+
 const canalOutpost =
 {
   topLeft: {
@@ -26,7 +28,8 @@ const Eklesa =
     y: 315,
   },
   action: function () {
-    console.log("Eklesa");
+    ui.eklesaMap.style.display = "block";
+    ui.worldMap.style.display = "none";
   },
 
   tooltipText: "Despite its strengths and weaknesses, Eklesa is most likely headed towards a prosperous future by its famous traders. However, around the city, the swamps are dangerous. This remains to be seen."
@@ -100,6 +103,25 @@ const Tont =
   tooltipText: "Tont is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life. On the other hand, this is the home of sand people."
 };
 
-const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
+const mill =
+{
+  topLeft: {
+    x: 120,
+    y: 65,
+  },
+  bottomRight: {
+    x: 170,
+    y: 85,
+  },
+  action: function () {
+    console.log("Mill");
+  },
 
-export default locationsArray;
+  tooltipText: "The mill"
+};
+
+
+export const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
+
+export const eklesaArray = [mill]
+

@@ -1,35 +1,64 @@
 import ui from "./modules/ui.js";
 import { selectEvent, actionButtonClickedforOption1, actionButtonClickedforOption2} from "./modules/scenario.js";
-import locationsArray from "./modules/locations.js";
+import {locationsArray, eklesaArray} from "./modules/locations.js";
 
 
 
 
-ui.map.addEventListener("click", function (event) {
-  let rectangle = event.target.getBoundingClientRect();
-  const x = event.clientX - rectangle.left;
-  const y = event.clientY - rectangle.top;
 
-  onMapClicked({ x, y })
-})
+  ui.worldMap.addEventListener("click", function (event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+  
+    onMapClicked(locationsArray,{ x, y })
+  })
+  
+  ui.worldMap.addEventListener("mousemove", function (event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+    console.log(event)
+  
+  
+    if (findAreaByPoint(locationsArray, { x, y }) !== undefined) {
+      event.target.style.cursor = "pointer";
+      onMapHovered(locationsArray, { x, y }, { x: event.clientX, y: event.clientY });
+    } else {
+      event.target.style.cursor = "default";
+      ui.tooltipField.style.display = "none";
+    }
+  })
 
-ui.map.addEventListener("mousemove", function (event) {
-  let rectangle = event.target.getBoundingClientRect();
-  const x = event.clientX - rectangle.left;
-  const y = event.clientY - rectangle.top;
-  console.log(event)
 
-  if (findAreaByPoint({ x, y }) !== undefined) {
-    event.target.style.cursor = "pointer";
-    onMapHovered({ x, y }, { x: event.clientX, y: event.clientY });
-  } else {
-    event.target.style.cursor = "default";
-    ui.tooltipField.style.display = "none";
-  }
-})
+  ui.eklesaMap.addEventListener("click", function (event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+  
+    onMapClicked(eklesaArray,{ x, y })
+  });
+  
+  ui.eklesaMap.addEventListener("mousemove", function (event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+    console.log(event)
+  
+  
+    if (findAreaByPoint(eklesaArray,{ x, y }) !== undefined) {
+      event.target.style.cursor = "pointer";
+      onMapHovered(eklesaArray,{ x, y }, { x: event.clientX, y: event.clientY });
+    } else {
+      event.target.style.cursor = "default";
+      ui.tooltipField.style.display = "none";
+    }
+  })
 
-function findAreaByPoint(point) {
-  return locationsArray.find((mapArea) => {
+
+
+function findAreaByPoint(array, point) {
+  return array.find((mapArea) => {
     return (
       mapArea.topLeft.x <= point.x &&
       mapArea.bottomRight.x >= point.x &&
@@ -39,16 +68,16 @@ function findAreaByPoint(point) {
   });
 }
 
-function onMapClicked(point) {
+function onMapClicked(array, point) {
   console.log(point)
-  const area = findAreaByPoint(point);
+  const area = findAreaByPoint(array, point);
   if (area !== undefined) {
     area.action();
   }
 }
 
-function onMapHovered(point, clientPoint) {
-  const area = findAreaByPoint(point);
+function onMapHovered(array, point, clientPoint) {
+  const area = findAreaByPoint(array, point);
   if (area !== undefined) {
 
     ui.tooltipField.style.display = "block";

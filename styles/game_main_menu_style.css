@@ -127,10 +127,11 @@ header {
     align-items: center;
 }
 
-#map-frame {
+.map-frame {
     border: 1px solid rgba(51, 47, 44, 0.651);
     border-radius: 1em;
 }
+
 
 .hide {
     display: none;
@@ -153,6 +154,20 @@ header {
     height: 100%;
     display: inherit;
 }
+
+
+/*body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(183, 183, 183);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0);
+}
+*/
 
 /*************************************************************************/
 /*Attributes*/
