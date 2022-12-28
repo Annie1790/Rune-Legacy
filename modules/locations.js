@@ -14,7 +14,7 @@ const canalOutpost =
     console.log("canal Outpost");
   },
 
-  tooltipText: "Canal Outpost lays next to the river Danube along with many monstrous mountains. It is also home to many monsters. Better to come prepared!",
+  tooltipText: "Canal Outpost lays next to the river Danube along with many monstrous mountains. It is also home to many monsters. Better come prepared!",
 };
 
 const Eklesa =
