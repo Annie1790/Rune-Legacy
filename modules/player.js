@@ -1,11 +1,17 @@
 import ui from "./ui.js"
 
+
+/* to check if player has the correct values: 
+browser console,
+const player = await import("./modules/player.js"),
+player.default */
 class Character {
     constructor() {
       this.name = new URLSearchParams(window.location.search).get("name");
       this.health = +ui.characterHealth.innerHTML;
       this.experience = +ui.characterExperience.innerHTML;
       this.level = +ui.characterLevel.innerHTML;
+      this.gold = +ui.gold.innerHTML;
     }
   
     heal(amount) {
@@ -74,5 +80,4 @@ class Character {
   }
 
 const player1 = new Character();
-
 export default player1;

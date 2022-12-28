@@ -120,8 +120,128 @@ const mill =
   tooltipText: "The mill"
 };
 
+const fortuneTeller =
+{
+  topLeft: {
+    x: 62,
+    y: 196,
+  },
+  bottomRight: {
+    x: 261,
+    y: 214,
+  },
+  action: function () {
+    console.log("Fortune Teller");
+  },
+
+  tooltipText: "Fortune teller"
+};
+
+const inn =
+{
+  topLeft: {
+    x: 71,
+    y: 315,
+  },
+  bottomRight: {
+    x: 118,
+    y: 337,
+  },
+  action: function () {
+    console.log("Inn");
+  },
+
+  tooltipText: "The inn"
+};
+
+const church =
+{
+  topLeft: {
+    x: 468,
+    y: 200,
+  },
+  bottomRight: {
+    x: 567,
+    y: 220,
+  },
+  action: function () {
+    console.log("The church");
+  },
+
+  tooltipText: "The church"
+};
+
+const fireplace =
+{
+  topLeft: {
+    x: 284,
+    y: 423,
+  },
+  bottomRight: {
+    x: 410,
+    y: 444,
+  },
+  action: function () {
+    console.log("Fireplace");
+  },
+
+  tooltipText: "A place to sleep and heal yourself. It's free to stay, but beware of thiefs!"
+};
+
+const trader =
+{
+  topLeft: {
+    x: 367,
+    y: 384,
+  },
+  bottomRight: {
+    x: 570,
+    y: 408,
+  },
+  action: function () {
+    console.log("The trader's house");
+  },
+
+  tooltipText: "The trader's house"
+};
+
+const lodge =
+{
+  topLeft: {
+    x: 455,
+    y: 537,
+  },
+  bottomRight: {
+    x: 533,
+    y: 564,
+  },
+  action: function () {
+    console.log("The lodge");
+  },
+
+  tooltipText: "For some gold, you can stay for a night to heal your wounds."
+};
+
+const compass =
+{
+  topLeft: {
+    x: 535,
+    y: 23,
+  },
+  bottomRight: {
+    x: 640,
+    y: 128,
+  },
+  action: function () {
+    console.log("compass");
+    ui.eklesaMap.style.display = "none";
+    ui.worldMap.style.display = "block";
+  },
+
+  tooltipText: "Back to world map"
+};
 
 export const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
 
-export const eklesaArray = [mill]
+export const eklesaArray = [mill, fortuneTeller, inn, church, fireplace, trader, lodge, compass]
 

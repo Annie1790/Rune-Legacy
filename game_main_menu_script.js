@@ -1,4 +1,5 @@
 import ui from "./modules/ui.js";
+
 import { selectEvent, actionButtonClickedforOption1, actionButtonClickedforOption2} from "./modules/scenario.js";
 import {locationsArray, eklesaArray} from "./modules/locations.js";
 

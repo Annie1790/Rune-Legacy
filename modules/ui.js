@@ -4,7 +4,7 @@ const ui = {
     scenarioDescription: document.querySelector("[data-scenario-description]"),
     option1: document.querySelector("[data-option-1]"),
     option2: document.querySelector("[data-option-2]"),
-    continueButton: document.querySelector("#continue-button"),
+    continueButton: document.querySelector("[data-continue]"),
     characterName: document.querySelector("[data-character-name]"),
     characterHealth: document.querySelector("[data-health]"),
     characterExperience: document.querySelector("[data-experience]"),
@@ -14,5 +14,6 @@ const ui = {
     tooltipField: document.querySelector("[data-tooltip-field]"),
     malePortrait: document.querySelector("[data-portrait-male]"),
     femalePortrait: document.querySelector("[data-portrait-female]"),
+    gold: document.querySelector("[data-gold]")
 }
 export default ui;

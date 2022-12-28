@@ -10,13 +10,14 @@
     box-sizing: border-box;
     font-family: baseFont;
     color: rgb(224, 224, 224);
+    outline: 1px solid black;
 }
 
 body {
     background: url(../media/eklesa.jpg) no-repeat center center fixed;
     backdrop-filter: blur(5px);
     display: grid;
-    grid-template-columns: 3em max-content auto auto 3em;
+    grid-template-columns: 0.5em max-content auto auto 0.5em;
     grid-template-rows: auto auto auto auto;
     margin: 0px;
     height: 100vh;
@@ -41,7 +42,7 @@ header {
 }
 
 /*************************************************************************/
-/*Frames and backgrounds*/
+/*Frames, buttons*/
 .frame {
     border: 1px solid rgba(51, 47, 44, 0.651);
     backdrop-filter: blur(4px);
@@ -53,6 +54,27 @@ header {
 .portrait-frame {
     border: 0.5em double rgba(54, 34, 19, 0.651);
 }
+
+.option-buttons-box {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: auto;
+}
+
+.option-buttons-box > button {
+    font-size: 1.5em;
+    border-radius: 1em;
+    border-color: rgba(51, 47, 44, 0.534);
+    padding: 0.5em;
+    background-image: linear-gradient(180deg, #592a7e, #3d7fb0);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+}
+
+
+
 
 /*************************************************************************/
 /*Scenario and attributes box*/
@@ -90,26 +112,7 @@ header {
     height: 10em;
 }
 
-.option-buttons-box {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}
 
-.option-buttons-box > button {
-    font-size: 1.5em;
-    border-radius: 1em;
-    border-color: rgba(51, 47, 44, 0.534);
-    padding: 0.5em;
-    background-image: linear-gradient(180deg, #592a7e, #3d7fb0);
-    background-size: 100%;
-    background-repeat: repeat;
-    background-clip: text;
-}
-
-#continue-button {
-    display: none;
-}
 
 /*************************************************************************/
 /*Map*/
@@ -150,24 +153,16 @@ header {
     grid-column-end: 5 !important;
     grid-row-start: 3 !important;
     grid-row-end: 4 !important;
-    width: 100%;
-    height: 100%;
-    display: inherit;
+
+    display: flex;
+    flex-direction: row;
 }
 
-
-/*body::-webkit-scrollbar {
-    width: 0.25rem;
+.gold-box {
+    display: flex;
+    flex-direction: column;
 }
 
-body::-webkit-scrollbar-track {
-    background-color: rgb(183, 183, 183);
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 0, 0);
-}
-*/
 
 /*************************************************************************/
 /*Attributes*/
@@ -178,6 +173,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(177, 177, 177, 0.534);
 }
 
 .character-attributes>h1 {
@@ -194,12 +190,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 .character-attributes>h2 {
-    font-size: 1em;
+    font-size: 1.5em;
 }
 
-.character-attributes>p {
-    font-size: 1.5em;
+.character-attributes>div {
+    font-size: 1em;
     font-stretch: narrower;
+}
+
+.minmax-damage-box {
+    display: flex;
+    flex-direction: row;
 }
 
 .character-portrait {
@@ -222,3 +223,16 @@ footer {
     margin-top: auto;
     text-align: center;
 }
+
+/*body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(183, 183, 183);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0);
+}
+*/

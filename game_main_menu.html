@@ -27,12 +27,12 @@
     <div class="scen-attr-box">
         <div class="character-scenario-box frame">
             <div class="character-scenario-description">
-                <h1 class="" data-scenario-name></h1>
-                <p class="" data-scenario-description> </p>
-                <div class="  option-buttons-box">
+                <h1 data-scenario-name></h1>
+                <p  data-scenario-description> </p>
+                <div class="option-buttons-box">
                     <button data-option-1></button>
                     <button data-option-2></button>
-                    <button id="continue-button">Continue</button>
+                    <button data-continue class="hide">Continue</button>
                 </div>
             </div>
         </div>
@@ -42,17 +42,22 @@
             <img data-portrait-female class="hide character-portrait portrait-frame" src="./media/female_portrait.png" alt="Female player">
             <img data-portrait-male class="hide character-portrait portrait-frame" src="./media/male_portrait.png" alt="Male portrait">
             <h2>Health:</h2>
-            <p data-health>10</p>
+            <div data-health>10</div>
             <h2>Experience point:</h2>
-            <p data-experience>0</p>
+            <div data-experience>0</div>
             <h2>Level:</h2>
-            <p data-level>1</p>
+            <div data-level>1</div>
+            <h2>Damage:</h2>
+            <div class="minmax-damage-box">
+                <div>0</div> - <div>2</div></div>
         </div>
     </div>
 
     <div class="character-inventory frame">
-
-        <h1>Inventory</h1>
+        <div class="gold-box">
+            <img src="./media/assets/coin.png" alt="Gold coin">
+            <p data-gold>100</p>
+        </div>
 
     </div>
 
@@ -60,8 +65,8 @@
 
     <footer>
 
-        <p>Made by <a href="https://github.com/Annie1790" target="_blank"> Annie1790 </a></p>
-        <p> <a href="https://www.figma.com/file/C5xZXIIwOHuONyVz1M5cGO/Rune-Legacy-Ideas?t=yOFuzhnUC6ge4Xki-0" target="_blank">Figma ideas</a></p>
+        <div>Made by <a href="https://github.com/Annie1790" target="_blank"> Annie1790 </a></div>
+        <div> <a href="https://www.figma.com/file/C5xZXIIwOHuONyVz1M5cGO/Rune-Legacy-Ideas?t=yOFuzhnUC6ge4Xki-0" target="_blank">Figma ideas</a></div>
 
     </footer>
 
