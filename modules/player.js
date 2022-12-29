@@ -11,7 +11,8 @@ class Character {
       this.health = +ui.characterHealth.innerHTML;
       this.experience = +ui.characterExperience.innerHTML;
       this.level = +ui.characterLevel.innerHTML;
-      this.gold = +ui.gold.innerHTML;
+      this.minDamage = +ui.minDamage.innerHTML;
+        this.maxDamage = +ui.maxDamage.innerHTML;
     }
   
     heal(amount) {
@@ -75,6 +76,8 @@ class Character {
       ui.characterHealth.innerHTML = this.health;
       ui.characterExperience.innerHTML = this.experience;
       ui.characterLevel.innerHTML = this.level;
+      ui.minDamage.innerHTML = this.minDamage;
+      ui.maxDamage.innerHTML = this.maxDamage;
     }
   
   }

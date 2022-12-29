@@ -3,7 +3,9 @@ Adventure game based on the player's decisions.
 
 The generators I've used for design, name, description:
 
-Map: http://inkarnate.com/
+World Map/City: http://inkarnate.com/
+
+Dungeon Map: https://donjon.bin.sh/d20/dungeon/
 
 Character portrait: https://www.fantasy-faces.com/
 

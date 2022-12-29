@@ -14,6 +14,9 @@ const ui = {
     tooltipField: document.querySelector("[data-tooltip-field]"),
     malePortrait: document.querySelector("[data-portrait-male]"),
     femalePortrait: document.querySelector("[data-portrait-female]"),
-    gold: document.querySelector("[data-gold]")
+    inventorySpace: document.querySelector("[data-inventory-space]"),
+    gold: document.querySelector("[data-gold]"),
+    minDamage: document.querySelector("[data-min-damage]"),
+    maxDamage: document.querySelector("[data-max-damage]")
 }
 export default ui;
