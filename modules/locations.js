@@ -98,9 +98,11 @@ const Tont =
   },
   action: function () {
     console.log("Tont");
+    ui.tontDungeon.style.display = "block";
+    ui.worldMap.style.display = "none";
   },
 
-  tooltipText: "Tont is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life. On the other hand, this is the home of sand people."
+  tooltipText: "Tont is a barren area of landscape where living conditions are hostile for humans. The valley keeps many secrets. "
 };
 
 const mill =

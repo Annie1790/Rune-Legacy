@@ -11,6 +11,7 @@ const ui = {
     characterLevel: document.querySelector("[data-level]"),
     worldMap: document.querySelector("[data-world-map]"),
     eklesaMap: document.querySelector("[data-eklesa-map]"),
+    tontDungeon: document.querySelector("[data-Tont-dungeon]"),
     tooltipField: document.querySelector("[data-tooltip-field]"),
     malePortrait: document.querySelector("[data-portrait-male]"),
     femalePortrait: document.querySelector("[data-portrait-female]"),

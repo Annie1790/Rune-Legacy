@@ -13,7 +13,7 @@
 }
 
 body {
-    background: url(../media/eklesa.jpg) no-repeat center center fixed;
+    background: url(../media/maps/eklesa.jpg) no-repeat center center fixed;
     backdrop-filter: blur(5px);
     display: grid;
     grid-template-columns: 0.5em max-content auto auto 0.5em;
@@ -154,10 +154,10 @@ header {
     grid-row-end: 4 !important;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     max-width: auto;
     max-height: min-content;
-    overflow-x: scroll;
+    overflow-x:scroll;
 }
 
 .character-inventory::-webkit-scrollbar {

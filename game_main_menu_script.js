@@ -1,7 +1,7 @@
 import ui from "./modules/ui.js";
 import { selectEvent, actionButtonClickedforOption1, actionButtonClickedforOption2} from "./modules/scenario.js";
 import {locationsArray, eklesaArray} from "./modules/locations.js";
-import player1Inventory from "./modules/inventory.js";
+import player1Inventory, { Potion } from "./modules/inventory.js";
 
 
 
@@ -113,27 +113,16 @@ window.addEventListener("load", function () {
   selectEvent();
 })
 
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
-
-player1Inventory.addItem(`img`,`./media/assets/potion1.png`);
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion());
