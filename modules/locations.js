@@ -1,5 +1,5 @@
+import { currentEvent } from "./scenario.js";
 import ui from "./ui.js";
-
 const canalOutpost =
 {
   topLeft: {
@@ -224,7 +224,7 @@ const lodge =
   tooltipText: "For some gold, you can stay for a night to heal your wounds."
 };
 
-const compass =
+const compassEklesa =
 {
   topLeft: {
     x: 535,
@@ -243,7 +243,27 @@ const compass =
   tooltipText: "Back to world map"
 };
 
+const compassTontDung = 
+{
+    topLeft: {
+      x: 6,
+      y: 656,
+    },
+    bottomRight: {
+      x: 111,
+      y: 757,
+    },
+    action: function () {
+      ui.tontDungeon.style.display = "none";
+      ui.worldMap.style.display = "block";
+
+    },
+  
+    tooltipText: "Back to world map"
+  };
+
 export const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
 
-export const eklesaArray = [mill, fortuneTeller, inn, church, fireplace, trader, lodge, compass]
+export const eklesaArray = [mill, fortuneTeller, inn, church, fireplace, trader, lodge, compassEklesa]
 
+export const tontDungArray = [compassTontDung]

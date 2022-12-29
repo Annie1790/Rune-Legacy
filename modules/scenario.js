@@ -24,7 +24,7 @@ class EventOption {
     }
 }
 
-let currentEvent = null;
+export let currentEvent = null;
 
 let event1 = new Event("You found a cave...",
     "Would you go in?",

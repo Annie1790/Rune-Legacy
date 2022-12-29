@@ -1,6 +1,6 @@
 import ui from "./modules/ui.js";
 import { selectEvent, actionButtonClickedforOption1, actionButtonClickedforOption2} from "./modules/scenario.js";
-import {locationsArray, eklesaArray} from "./modules/locations.js";
+import {locationsArray, eklesaArray, tontDungArray} from "./modules/locations.js";
 import player1Inventory, { Potion } from "./modules/inventory.js";
 
 
@@ -54,7 +54,31 @@ import player1Inventory, { Potion } from "./modules/inventory.js";
       ui.tooltipField.style.display = "none";
     }
   })
+  
 
+  ui.tontDungeon.addEventListener("click", function (event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+  
+    onMapClicked(tontDungArray,{ x, y })
+  });
+  
+  ui.tontDungeon.addEventListener("mousemove", function (event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+    console.log(event)
+  
+  
+    if (findAreaByPoint(tontDungArray,{ x, y }) !== undefined) {
+      event.target.style.cursor = "pointer";
+      onMapHovered(tontDungArray,{ x, y }, { x: event.clientX, y: event.clientY });
+    } else {
+      event.target.style.cursor = "default";
+      ui.tooltipField.style.display = "none";
+    }
+  })
 
 
 function findAreaByPoint(array, point) {
