@@ -13,7 +13,7 @@
 }
 
 body {
-    background: url(../media/maps/Tont_dungeon.png) no-repeat center center fixed;
+    background: url(../media/maps/new_map.jpg) no-repeat center center fixed;
     backdrop-filter: blur(5px);
     display: grid;
     grid-template-columns: 300px auto 300px;
