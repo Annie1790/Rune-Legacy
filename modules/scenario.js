@@ -68,8 +68,10 @@ export function selectEvent(array) {
     appearOptions();
     let index = Math.floor(Math.random() * array.length);
     array[index].updateDisplay();
-    currentEvent = array[index]
+    currentEvent = array[index];
   }
+
+
 
   export function actionButtonClickedforOption1() {
     if (!player1.isAlive) {
