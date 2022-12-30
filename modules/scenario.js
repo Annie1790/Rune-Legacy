@@ -1,5 +1,6 @@
 import ui from "./ui.js";
 import player1 from "./player.js";
+import player1Inventory from "./inventory.js";
 
 class Event {
     constructor(name, description, option1, option2) {
@@ -39,30 +40,35 @@ let event1 = new Event("You found a cave...",
     }
     )
 );
-
-let event2 = new Event("Will you fight back?",
-  "You decide to rest. During the night, someone is trying to attack you.",
-  new EventOption("Fight back!", function () {
-    player1.damage(2);
-    ui.scenarioDescription.innerHTML = "Your opponent is way stronger than you, however you managed to get out the situation with light wounds."
+let tDLvl1 = new Event("The entarance of Tont valley...",
+"Soft, quiet sobs can be heard as you fall to a vibrant circular room, sand bricks cover the walls. The fractured floor is littered with stones and large rubble. A single lantern can be found in the center of the room. It looks like someone been there before. You don't seem to find any way to the next room. ",
+new EventOption("Pick up the lantern", function () {
+    ui.scenarioDescription.innerHTML = "You decide to pick up the lantern, and you hear a click. It was a trap set. An arrow hit your leg.";
+    player1.damage(5);
     player1.gainExperience(1);
-  }),
-  new EventOption("Run away.", function () {
-    player1.heal(3);
-    ui.scenarioDescription.innerHTML = "You examined the situation and you realised it is better to run. You get some experience points. "
-    player1.gainExperience(6);
-  }));
+}),
+new EventOption("Try to find a switch", function () {
+    player1.gainExperience(2);
+    player1Inventory.receiveGold(30);
+    ui.scenarioDescription.innerHTML = "Took you a bit of time, but you found a switch to the next room. You found some gold and gained experience!"
+}
+)
+);
 
 
-let eventArray = [event1, event2];
 
 
+let tontDungArray = [tDLvl1];
 
-export function selectEvent() {
+
+export let eventArray = [tontDungArray];
+
+
+export function selectEvent(array) {
     appearOptions();
-    let index = Math.floor(Math.random() * eventArray.length);
-    eventArray[index].updateDisplay();
-    currentEvent = eventArray[index]
+    let index = Math.floor(Math.random() * array.length);
+    array[index].updateDisplay();
+    currentEvent = array[index]
   }
 
   export function actionButtonClickedforOption1() {
@@ -106,3 +112,10 @@ function appearOptions() {
     ui.continueButton.style.display = "none";
   }
   
+export function gameRules(header, paragraph, button1, button2,contButton) {
+  header.innerHTML = "Game Rules";
+  paragraph.innerHTML = "<h2>The hero is awaken....</h2> <p>Each location will have different scenarios, for instance dungeons, puzzles, and fight scenes. Your job is to clear all levels and reach the final boss.</p> <p>The map on your left consist the places you can move to. To get back to main map, simply click on the compasses.</p> <p>Dungeons always start at level 1. Simply click on the numbers.</p> <p>On your right, there are health, level, experience points. Gain more experience to level up and unlock more features.</p> <p>On the bottom, you can find the inventory. In the future, you can loot certain things (swords, potions, and of course, runes) which you can also sell in the village of Eklesa.</p> <p>Make sure to loot as much runes as you can. They will be beneficial on your journey.</p> <p>If you enjoyed the game, make sure to leave a review by e-mail: budayaniko@outook.com</p>";
+  button1.style.display = "none";
+  button2.style.display = "none";
+  contButton.style.display = "none";
+}

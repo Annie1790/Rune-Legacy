@@ -12,7 +12,7 @@ class Character {
       this.experience = +ui.characterExperience.innerHTML;
       this.level = +ui.characterLevel.innerHTML;
       this.minDamage = +ui.minDamage.innerHTML;
-        this.maxDamage = +ui.maxDamage.innerHTML;
+      this.maxDamage = +ui.maxDamage.innerHTML;
     }
   
     heal(amount) {

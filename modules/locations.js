@@ -1,5 +1,6 @@
-import { currentEvent } from "./scenario.js";
+import { eventArray, selectEvent } from "./scenario.js";
 import ui from "./ui.js";
+let lvlFinished = 0;
 const canalOutpost =
 {
   topLeft: {
@@ -256,14 +257,30 @@ const compassTontDung =
     action: function () {
       ui.tontDungeon.style.display = "none";
       ui.worldMap.style.display = "block";
-
     },
   
     tooltipText: "Back to world map"
   };
 
+const tontDungLvl1 = 
+{topLeft: {
+  x: 403,
+  y: 70,
+},
+bottomRight: {
+  x: 434,
+  y: 101,
+},
+action: function () {
+  selectEvent(eventArray[0]);
+  lvlFinished++;
+},
+
+tooltipText: "Level 1"
+};
+
 export const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
 
 export const eklesaArray = [mill, fortuneTeller, inn, church, fireplace, trader, lodge, compassEklesa]
 
-export const tontDungArray = [compassTontDung]
+export const tontDungArray = [compassTontDung, tontDungLvl1]

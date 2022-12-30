@@ -1,5 +1,5 @@
 import ui from "./modules/ui.js";
-import { selectEvent, actionButtonClickedforOption1, actionButtonClickedforOption2} from "./modules/scenario.js";
+import {eventArray, selectEvent, actionButtonClickedforOption1, actionButtonClickedforOption2, gameRules} from "./modules/scenario.js";
 import {locationsArray, eklesaArray, tontDungArray} from "./modules/locations.js";
 import player1Inventory, { Potion } from "./modules/inventory.js";
 
@@ -18,7 +18,6 @@ import player1Inventory, { Potion } from "./modules/inventory.js";
     let rectangle = event.target.getBoundingClientRect();
     const x = event.clientX - rectangle.left;
     const y = event.clientY - rectangle.top;
-    console.log(event)
   
   
     if (findAreaByPoint(locationsArray, { x, y }) !== undefined) {
@@ -43,7 +42,6 @@ import player1Inventory, { Potion } from "./modules/inventory.js";
     let rectangle = event.target.getBoundingClientRect();
     const x = event.clientX - rectangle.left;
     const y = event.clientY - rectangle.top;
-    console.log(event)
   
   
     if (findAreaByPoint(eklesaArray,{ x, y }) !== undefined) {
@@ -68,7 +66,6 @@ import player1Inventory, { Potion } from "./modules/inventory.js";
     let rectangle = event.target.getBoundingClientRect();
     const x = event.clientX - rectangle.left;
     const y = event.clientY - rectangle.top;
-    console.log(event)
   
   
     if (findAreaByPoint(tontDungArray,{ x, y }) !== undefined) {
@@ -112,7 +109,6 @@ function onMapHovered(array, point, clientPoint) {
   }
 }
 
-ui.continueButton.addEventListener("click", selectEvent);
 
 ui.option1.addEventListener("click", actionButtonClickedforOption1);
 ui.option2.addEventListener("click", actionButtonClickedforOption2);
@@ -134,8 +130,14 @@ function isPortraitVisible() {
 
 window.addEventListener("load", function () {
   isPortraitVisible();
-  selectEvent();
-})
+  gameRules(ui.scenarioName,
+    ui.scenarioDescription,
+    ui.option1,
+    ui.option2, 
+    ui.continueButton
+  )
+}
+)
 
 player1Inventory.addItem(new Potion());
 player1Inventory.addItem(new Potion());
@@ -146,7 +148,7 @@ player1Inventory.addItem(new Potion());
 player1Inventory.addItem(new Potion());
 player1Inventory.addItem(new Potion());
 player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
+player1Inventory.addItem(new Potion()); 
 player1Inventory.addItem(new Potion());
 player1Inventory.addItem(new Potion());
 player1Inventory.addItem(new Potion());
