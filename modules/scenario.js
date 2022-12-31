@@ -27,30 +27,17 @@ class EventOption {
 
 export let currentEvent = null;
 
-let event1 = new Event("You found a cave...",
-    "Would you go in?",
-    new EventOption("Yes", function () {
-        ui.scenarioDescription.innerHTML = "You found lots of gold and a healing potion! And gained some experience.";
-        player1.heal(5);
-        player1.gainExperience(3);
-    }),
-    new EventOption("No", function () {
-        player1.gainExperience(2);
-        ui.scenarioDescription.innerHTML = "Better to stay away."
-    }
-    )
-);
 let tDLvl1 = new Event("The entarance of Tont valley...",
-"Soft, quiet sobs can be heard as you fall to a vibrant circular room, sand bricks cover the walls. The fractured floor is littered with stones and large rubble. A single lantern can be found in the center of the room. It looks like someone been there before. You don't seem to find any way to the next room. ",
+"Soft, quiet sobs can be heard as you fall to a vibrant circular room, sand bricks cover the walls. The fractured floor is littered with stones and large rubble. A single lantern can be found in the center of the room. It looks like someone been there before. You don't seem to find any way to the next room.",
 new EventOption("Pick up the lantern", function () {
-    ui.scenarioDescription.innerHTML = "You decide to pick up the lantern, and you hear a click. It was a trap set. An arrow hit your leg.";
-    player1.damage(5);
+    ui.scenarioDescription.innerHTML = "You decide to pick up the lantern, suddenly you hear a clicking sound. It was a trap set. Suddenly an arrow tip hit your leg. Minor injures, but you manage to remove it from your leg. ";
+    player1.damage(2);
     player1.gainExperience(1);
 }),
-new EventOption("Try to find a switch", function () {
+new EventOption("Try to find a switch on the wall", function () {
     player1.gainExperience(2);
-    player1Inventory.receiveGold(30);
-    ui.scenarioDescription.innerHTML = "Took you a bit of time, but you found a switch to the next room. You found some gold and gained experience!"
+    player1Inventory.receiveGold(15);
+    ui.scenarioDescription.innerHTML = "Took you a bit of time, but you found a switch. The wall opens up and leads you to the next room. You found some gold and gained experience!"
 }
 )
 );

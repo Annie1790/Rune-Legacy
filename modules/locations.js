@@ -1,6 +1,75 @@
 import { eventArray, selectEvent } from "./scenario.js";
 import ui from "./ui.js";
 let lvlFinished = 0;
+
+function findAreaByPoint(array, point) {
+  return array.find((mapArea) => {
+    return (
+      mapArea.topLeft.x <= point.x &&
+      mapArea.bottomRight.x >= point.x &&
+      mapArea.topLeft.y <= point.y &&
+      mapArea.bottomRight.y >= point.y
+    );
+  });
+}
+
+function onMapClicked(array, point) {
+  console.log(point)
+  const area = findAreaByPoint(array, point);
+  if (area !== undefined) {
+    area.action();
+  }
+}
+
+function onMapHovered(array, point, clientPoint) {
+  const area = findAreaByPoint(array, point);
+  if (area !== undefined) {
+
+    ui.tooltipField.style.display = "block";
+    ui.tooltipField.style.position = "absolute";
+    ui.tooltipField.style.left = `${clientPoint.x - 100}px`;
+    ui.tooltipField.style.top = `${clientPoint.y + 20}px`;
+    ui.tooltipField.innerHTML = area.tooltipText;
+  }
+}
+
+function getCoordinates(event) {
+    let rectangle = event.target.getBoundingClientRect();
+    const x = event.clientX - rectangle.left;
+    const y = event.clientY - rectangle.top;
+    return {x, y}
+  }
+
+function mapEventClick(mapElement, locationArray) {
+  mapElement.addEventListener("click", function (event) {
+    const coordinates = getCoordinates(event);
+    onMapClicked(locationArray, coordinates);
+  })
+}
+
+function mapEventHover(mapElement, locationArray) {
+  mapElement.addEventListener("mousemove", function (event) {
+    const coordinates = getCoordinates(event);
+
+
+    if (findAreaByPoint(locationArray, coordinates) !== undefined) {
+      event.target.style.cursor = "pointer";
+      onMapHovered(locationArray, coordinates, { x: event.clientX, y: event.clientY });
+    } else {
+      event.target.style.cursor = "default";
+      ui.tooltipField.style.display = "none";
+    }
+  })
+}
+
+export function addMapEvents(mapElement, locationArray) {
+  mapEventClick(mapElement,locationArray);
+  mapEventHover(mapElement,locationArray)
+}
+
+
+
+
 const canalOutpost =
 {
   topLeft: {
@@ -244,43 +313,63 @@ const compassEklesa =
   tooltipText: "Back to world map"
 };
 
-const compassTontDung = 
+const compassTontDung =
 {
-    topLeft: {
-      x: 6,
-      y: 656,
-    },
-    bottomRight: {
-      x: 111,
-      y: 757,
-    },
-    action: function () {
-      ui.tontDungeon.style.display = "none";
-      ui.worldMap.style.display = "block";
-    },
-  
-    tooltipText: "Back to world map"
-  };
+  topLeft: {
+    x: 6,
+    y: 656,
+  },
+  bottomRight: {
+    x: 111,
+    y: 757,
+  },
+  action: function () {
+    ui.tontDungeon.style.display = "none";
+    ui.worldMap.style.display = "block";
+  },
 
-const tontDungLvl1 = 
-{topLeft: {
-  x: 403,
-  y: 70,
-},
-bottomRight: {
-  x: 434,
-  y: 101,
-},
-action: function () {
-  selectEvent(eventArray[0]);
-  lvlFinished++;
-},
-
-tooltipText: "Level 1"
+  tooltipText: "Back to world map"
 };
+
+const tontDungLvl1 =
+{
+  topLeft: {
+    x: 403,
+    y: 70,
+  },
+  bottomRight: {
+    x: 434,
+    y: 101,
+  },
+  action: function () {
+    selectEvent(eventArray[0]);
+    lvlFinished++;
+  },
+
+  tooltipText: "Level 1"
+};
+
+const tontDungLvl2 =
+{
+  topLeft: {
+    x: 466,
+    y: 165,
+  },
+  bottomRight: {
+    x: 500,
+    y: 196,
+  },
+  action: function () {
+
+  },
+
+  tooltipText: "Level 2"
+};
+
+
 
 export const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
 
 export const eklesaArray = [mill, fortuneTeller, inn, church, fireplace, trader, lodge, compassEklesa]
 
-export const tontDungArray = [compassTontDung, tontDungLvl1]
+export const tontDungArray = [compassTontDung, tontDungLvl1, tontDungLvl2]

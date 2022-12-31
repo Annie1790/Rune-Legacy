@@ -79,8 +79,10 @@ class Character {
       ui.minDamage.innerHTML = this.minDamage;
       ui.maxDamage.innerHTML = this.maxDamage;
     }
-  
   }
+
+
+
 
 const player1 = new Character();
 export default player1;
