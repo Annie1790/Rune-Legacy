@@ -1,4 +1,6 @@
-import {tDLvl1,tdLvl2,selectEvent,lvlDone, sectionDone } from "./scenario.js";
+import { isLevelDone, markLevelDone } from "./event_level_status.js";
+import { setActiveEvents } from "./event_selector.js";
+import { tDLvl1, tdLvl2 } from "./scenario.js";
 import ui from "./ui.js";
 
 function findAreaByPoint(array, point) {
@@ -341,7 +343,9 @@ const tontDungLvl1 =
     y: 101,
   },
   action: function () {
-    selectEvent(tDLvl1);
+    setActiveEvents(tDLvl1, function () {
+      markLevelDone("tontDungLvl1");
+    })
   },
 
   tooltipText: "Level 1"
@@ -358,11 +362,11 @@ const tontDungLvl2 =
     y: 196,
   },
   action: function () {
-if (lvlDone === 1) {
-  selectEvent(tdLvl2)
-} else {
-  console.log("You must finish the previous levels first!")
-}
+    if (isLevelDone("tontDungLvl1")) {
+      setActiveEvents(tdLvl2, function () {
+        markLevelDone("tontDungLvl2");
+      })
+    }
   },
 
   tooltipText: "Level 2"
