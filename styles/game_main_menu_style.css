@@ -107,8 +107,9 @@ header {
 }
 
 .character-scenario-description>p {
+    font-size: 1.1em;
     max-width: 30em;
-    height: 10em;
+    height: 20em;
 }
 
 

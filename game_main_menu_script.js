@@ -2,7 +2,6 @@ import ui from "./modules/ui.js";
 import {showCharacterPortrait } from "./modules/player.js";
 import {gameRules } from "./modules/scenario.js";
 import { addMapEvents, locationsArray, eklesaArray, tontDungArray } from "./modules/locations.js";
-import player1Inventory, { Potion } from "./modules/inventory.js";
 
 addMapEvents(ui.worldMap, locationsArray);
 addMapEvents(ui.eklesaMap, eklesaArray);
@@ -21,16 +20,3 @@ window.addEventListener("load", function () {
 }
 )
 
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());
-player1Inventory.addItem(new Potion());

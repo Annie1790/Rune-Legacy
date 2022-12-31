@@ -1,6 +1,6 @@
 import ui from "./ui.js";
 
-class Inventory {
+ class Inventory {
     constructor() {
         this.gold = +ui.gold.innerHTML;
         this.inventorySpace = ui.inventorySpace;
@@ -23,7 +23,7 @@ class Inventory {
 
 }
 
-class InventoryItem {
+export class InventoryItem {
     constructor(element, weight) {
         this.element = element;
         this.weight = weight;
@@ -38,6 +38,12 @@ export class Potion extends InventoryItem {
     }
 }
 
-let player1Inventory = new Inventory()
+export class Rune extends InventoryItem {
+    constructor(imageSrc) {
+        const img = document.createElement("img");
+        img.src = imageSrc;
+        super(img, 10)
+    }
+}
 
-export default player1Inventory;
+export let player1Inventory = new Inventory()

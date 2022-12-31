@@ -29,7 +29,8 @@ function continueButtonClicked() {
         currentOnLevelDoneCallback = null;
         ui.continueButton.style.display = "none";
         ui.scenarioName.innerHTML = "Level done!";
-        ui.scenarioDescription.innerHTML = "Click on next level!"
+        ui.scenarioDescription.innerHTML = "Click on next level!";
+        
     }
 }
 

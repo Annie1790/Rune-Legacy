@@ -1,6 +1,6 @@
 import ui from "./ui.js";
 import { player1 } from "./player.js";
-import player1Inventory from "./inventory.js";
+import {player1Inventory, Potion, Rune} from "./inventory.js";
 
 class Event {
   constructor(name, description, option1, option2) {
@@ -28,24 +28,24 @@ class EventOption {
 export let currentEvent = null;
 
 export let tDLvl1 = [new Event("The entarance of Tont valley...",
-  "Soft, quiet sobs can be heard as you fall to a vibrant circular room, sand bricks cover the walls. The fractured floor is littered with stones and large rubble. A single lantern can be found in the center of the room. It looks like someone been there before. You don't seem to find any way to the next room.",
+  "Soft, quiet sobs can be heard as you fall to a dark circular room, while thick sand bricks cover the way to the next room. While you lit your candle, you see the fractured floor is littered with stones and large rubble. A single lantern can be found in the center of the room. It is unlit, but slightly warm, recently used. Looks like someone been here recently? Might be good to use this lantern instead of your candle. You don't seem to find any way to move the bricks.",
   new EventOption("Pick up the lantern", function () {
-    ui.scenarioDescription.innerHTML = "You decide to pick up the lantern, suddenly you hear a clicking sound. It was a trap set. Suddenly an arrow tip hit your leg. Minor injures, but you manage to remove it from your leg. ";
+    ui.scenarioDescription.innerHTML = "You decide to pick up the lantern, suddenly you hear a clicking sound. It was a trap set. An arrow tip hit your leg. with minor injures, but you manage to remove the tip. While healing yourself, a statue emerges from the ground, and moves the bricks.";
     player1.damage(2);
     player1.gainExperience(1);
   }),
   new EventOption("Try to find a switch on the wall", function () {
     player1.gainExperience(2);
     player1Inventory.receiveGold(15);
-    ui.scenarioDescription.innerHTML = "Took you a bit of time, but you found a switch. The wall opens up and leads you to the next room. You found some gold and gained experience!"
+    ui.scenarioDescription.innerHTML = "The lantern was too suspicious, you decide to leave it there. Might be a trap. Took you a bit of time, but you found a switch. A statue emerges from the ground and moves the bricks away. Because of your decision, you found some gold and gained experience!"
   }
   )
 )];
 export let tdLvl2 = [
-  new Event("Test lvl 2/1",
-    "a or b", new EventOption("a", function () {
+  new Event("Moving forward...",
+    "Moving forward, a narrow and long hallway faces you. Anctient writings decorate the sandbrick walls, and dead insects, human remainings cover the floor. While examining the ancient writings, you recognize some of the words written in english. 'rune, fire, ice, lightning'. That doesn't make sense. Right next to you, a small hollow can be found on the wall. You discover a small, slightly shiny rock fragment. Would you pick it up?", new EventOption("a", function () {
       ui.scenarioDescription.innerHTML = "a option clicked";
-      player1.damage(2);
+      player1.addItem(new Rune("./media/assets/rune1.png"))
       player1.gainExperience(1);
     }),
     new EventOption("b", function () {

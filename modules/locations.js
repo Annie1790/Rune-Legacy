@@ -173,7 +173,7 @@ const Tont =
     ui.worldMap.style.display = "none";
   },
 
-  tooltipText: "Tont is a barren area of landscape where living conditions are hostile for humans. The valley keeps many secrets. "
+  tooltipText: "Tont is a barren area of landscape where living conditions are hostile for humans. The valley keeps many secrets. <p> Click to enter dungeon </p> "
 };
 
 const mill =
@@ -372,10 +372,59 @@ const tontDungLvl2 =
   tooltipText: "Level 2"
 };
 
+const tontDungLvl3 =
+{
+  topLeft: {
+    x: 278,
+    y: 375,
+  },
+  bottomRight: {
+    x: 305,
+    y: 401,
+  },
+  action: function () {
+    
+  },
 
+  tooltipText: "Level 3"
+};
+
+const tontDungLvl4 =
+{
+  topLeft: {
+    x: 551,
+    y: 405,
+  },
+  bottomRight: {
+    x: 579,
+    y: 433,
+  },
+  action: function () {
+    
+  },
+
+  tooltipText: "Level 4"
+};
+
+const tontDungLvl5 =
+{
+  topLeft: {
+    x: 444,
+    y: 506,
+  },
+  bottomRight: {
+    x: 466,
+    y: 528,
+  },
+  action: function () {
+    
+  },
+
+  tooltipText: "Level 5"
+};
 
 export const locationsArray = [canalOutpost, Eklesa, magicForest, Onavale, beastField, Tont];
 
 export const eklesaArray = [mill, fortuneTeller, inn, church, fireplace, trader, lodge, compassEklesa]
 
-export const tontDungArray = [compassTontDung, tontDungLvl1, tontDungLvl2]
+export const tontDungArray = [compassTontDung, tontDungLvl1, tontDungLvl2, tontDungLvl3, tontDungLvl4, tontDungLvl5]
