@@ -81,8 +81,17 @@ class Character {
     }
   }
 
+ export function showCharacterPortrait() {
+    const searchParams = new URLSearchParams(window.location.search);
+    let portrait = searchParams.get("portrait");
+    ui.characterName.innerText = searchParams.get("name");
+  
+    if (portrait === "female") {
+      ui.femalePortrait.style.display = "block";
+    } else if (portrait === "male") {
+      ui.malePortrait.style.display = "block";
+    }
+  }
 
 
-
-const player1 = new Character();
-export default player1;
+export const player1 = new Character();

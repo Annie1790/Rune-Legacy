@@ -1,6 +1,5 @@
-import { eventArray, selectEvent } from "./scenario.js";
+import {tDLvl1,tdLvl2,selectEvent,lvlDone, sectionDone } from "./scenario.js";
 import ui from "./ui.js";
-let lvlFinished = 0;
 
 function findAreaByPoint(array, point) {
   return array.find((mapArea) => {
@@ -342,8 +341,7 @@ const tontDungLvl1 =
     y: 101,
   },
   action: function () {
-    selectEvent(eventArray[0]);
-    lvlFinished++;
+    selectEvent(tDLvl1);
   },
 
   tooltipText: "Level 1"
@@ -360,7 +358,11 @@ const tontDungLvl2 =
     y: 196,
   },
   action: function () {
-
+if (lvlDone === 1) {
+  selectEvent(tdLvl2)
+} else {
+  console.log("You must finish the previous levels first!")
+}
   },
 
   tooltipText: "Level 2"

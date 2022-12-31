@@ -5,6 +5,7 @@ const ui = {
     option1: document.querySelector("[data-option-1]"),
     option2: document.querySelector("[data-option-2]"),
     continueButton: document.querySelector("[data-continue]"),
+    continueLevelCleared: document.querySelector("[data-continue-level-cleared]"),
     characterName: document.querySelector("[data-character-name]"),
     characterHealth: document.querySelector("[data-health]"),
     characterExperience: document.querySelector("[data-experience]"),
