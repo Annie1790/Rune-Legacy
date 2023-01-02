@@ -79,6 +79,8 @@ class Character {
       ui.minDamage.innerHTML = this.minDamage;
       ui.maxDamage.innerHTML = this.maxDamage;
     }
+
+    
   }
 
  export function showCharacterPortrait() {

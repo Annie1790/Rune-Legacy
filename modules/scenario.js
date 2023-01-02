@@ -43,15 +43,17 @@ export let tDLvl1 = [new Event("The entarance of Tont valley...",
 )];
 export let tdLvl2 = [
   new Event("Moving forward...",
-    "Moving forward, a narrow and long hallway faces you. Anctient writings decorate the sandbrick walls, and dead insects, human remainings cover the floor. While examining the ancient writings, you recognize some of the words written in english. 'rune, fire, ice, lightning'. That doesn't make sense. Right next to you, a small hollow can be found on the wall. You discover a small, slightly shiny rock fragment. Would you pick it up?", new EventOption("a", function () {
+    "Moving forward, a narrow and long hallway faces you. Anctient writings decorate the sandbrick walls, and dead insects, human remainings cover the floor. While examining the ancient writings, you recognize some of the words written in english. 'rune, fire, ice, lightning'. That doesn't make sense. Right next to you, a small hollow can be found on the wall. You discover a small, slightly shiny rock fragment. Would you pick it up?", 
+    new EventOption("a", function () {
       ui.scenarioDescription.innerHTML = "a option clicked";
-      player1.addItem(new Rune("./media/assets/rune1.png"))
+      player1Inventory.addItem(new Rune("./media/assets/rune1.png", 2, 4, "Damage: 2-4"));
       player1.gainExperience(1);
     }),
     new EventOption("b", function () {
+      ui.scenarioDescription.innerHTML = "b option clicked"
       player1.gainExperience(2);
       player1Inventory.receiveGold(15);
-      ui.scenarioDescription.innerHTML = "b option clicked"
+      
     }
     )
   ),

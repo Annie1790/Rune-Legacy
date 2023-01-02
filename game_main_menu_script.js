@@ -1,5 +1,6 @@
 import ui from "./modules/ui.js";
-import {showCharacterPortrait } from "./modules/player.js";
+import { Inventory, InventoryItem, player1Inventory, Potion, Rune } from "./modules/inventory.js";
+import {player1, showCharacterPortrait } from "./modules/player.js";
 import {gameRules } from "./modules/scenario.js";
 import { addMapEvents, locationsArray, eklesaArray, tontDungArray } from "./modules/locations.js";
 

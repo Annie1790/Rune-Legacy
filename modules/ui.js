@@ -17,6 +17,7 @@ const ui = {
     femalePortrait: document.querySelector("[data-portrait-female]"),
     inventorySpace: document.querySelector("[data-inventory-space]"),
     gold: document.querySelector("[data-gold]"),
+    inventoryTooltip: document.querySelector("[data-inventory-tooltip]"),
     minDamage: document.querySelector("[data-min-damage]"),
     maxDamage: document.querySelector("[data-max-damage]")
 }
