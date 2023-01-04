@@ -1,6 +1,6 @@
 import ui from "./ui.js";
 import { player1 } from "./player.js";
-import { player1Inventory,Herb, Potion, Rune } from "./inventory.js";
+import { player1Inventory,herbsAndEffects, Potion, Rune } from "./inventory.js";
 
 class Event {
   constructor(name, description, option1, option2) {
@@ -61,7 +61,7 @@ export let tdLvl2 = [
     "Moving forward, gibberish words can be heard at the end of the tunnel. It sounds like an old greybeard, who you might have known from the past. Really familiar, but you just don't remember right now. It also sounds like he is moaning for help. Might be a trap? Maybe your mind plays tricks with you? ",
     new EventOption("Ignore him", function () {
       ui.scenarioDescription.innerHTML = "It seems like your mind plays tricks with you. When you reached the next room, there was no one there. On your way, you found some herbs.";
-      player1Inventory.addItem(new Herb("./media/assets/trurpore.png", "Combine herbs to make potions! Heals the player by <strong>5</strong> points.",0.1))
+      player1Inventory.addItem(herbsAndEffects.trurpore)
       player1.gainExperience(3);
     }),
     new EventOption("support him", function () {

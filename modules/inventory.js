@@ -1,6 +1,8 @@
 import ui from "./ui.js";
 import { player1 } from "./player.js";
 
+
+
 export class Inventory {
     constructor() {
         this.gold = +ui.gold.innerHTML;
@@ -32,7 +34,7 @@ export class InventoryItem {
         this.element = element;
         this.weight = weight;
         this.description = description;
-        inventoryTooltipShow(element, description)
+        inventoryTooltipShow(element, description);
     }
 
 
@@ -58,12 +60,15 @@ export class Rune extends InventoryItem {
 }
 //separate for later
 export class Herb extends InventoryItem {
-    constructor(imageSrc, description, weight) {
+    constructor(imageSrc, description, effect, weight) {
         const img = document.createElement("img");
         super(img, weight, description);
         img.src = imageSrc;
-        getItemEffect(img, herbEffects.trurpore)
+        this.effect = effect;
+        activateEffect(img, effect);
     }
+
+    
 }
 
 function inventoryTooltipShow(item, description) {
@@ -85,15 +90,32 @@ function inventoryTooltipShow(item, description) {
     })
 }
 
-function getItemEffect(item, objectValue) {
+function activateEffect(item, effect) {
     item.addEventListener("dblclick", function() {
-        objectValue.value
-        console.log(objectValue)
+        console.log(player1Inventory.items)
+        effect()
+        let updatedInventory = removeItemAfterEffect(player1Inventory.items, player1Inventory.items[item])
+        console.log(updatedInventory)
+        
+        
     })
+}
+
+function removeItemAfterEffect(array, value) {
+   const index = array.indexOf(value);
+   if (index > -1) {
+    return array.splice(index, 1)
+   } else {
+    return console.log("wrong")
+   }
+    
+}
+
+export let herbsAndEffects = {
+    trurpore: new Herb("./media/assets/trurpore.png", "<div>Trurpore</div> Heal +<strong>3</strong> points.", function(){player1.heal(3)}, 0.1),
+
+
 }
 
 export let player1Inventory = new Inventory()
 
-let herbEffects = {
-    trurpore: player1.heal(3),
-}
