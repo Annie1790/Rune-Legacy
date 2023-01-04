@@ -1,6 +1,6 @@
 import ui from "./ui.js";
 import { player1 } from "./player.js";
-import {player1Inventory, Potion, Rune} from "./inventory.js";
+import { player1Inventory,Herb, Potion, Rune } from "./inventory.js";
 
 class Event {
   constructor(name, description, option1, option2) {
@@ -43,27 +43,28 @@ export let tDLvl1 = [new Event("The entarance of Tont valley...",
 )];
 export let tdLvl2 = [
   new Event("Moving forward...",
-    "Moving forward, a narrow and long hallway faces you. Anctient writings decorate the sandbrick walls, and dead insects, human remainings cover the floor. While examining the ancient writings, you recognize some of the words written in english. 'rune, fire, ice, lightning'. That doesn't make sense. Right next to you, a small hollow can be found on the wall. You discover a small, slightly shiny rock fragment. Would you pick it up?", 
-    new EventOption("a", function () {
-      ui.scenarioDescription.innerHTML = "a option clicked";
+    "Moving forward, a narrow and long hallway faces you. Anctient writings decorate the sandbrick walls, and dead insects, human remainings cover the floor. While examining the ancient writings, you recognize some of the words written in english. 'fire, ice, lightning'. That doesn't make sense. Right next to you, a small hollow can be found on the wall. You discover a small, slightly shiny rock fragment.",
+    new EventOption("Examine the hollow", function () {
+      ui.scenarioDescription.innerHTML = "You found something. Along with some gold, the shiny stone reveals its power. It's a rune! Congratulations on finding your first rune!";
       player1Inventory.addItem(new Rune("./media/assets/rune1.png", 2, 4, "Damage: 2-4"));
-      player1.gainExperience(1);
+      player1.gainExperience(3);
+      player1Inventory.receiveGold(25);
     }),
-    new EventOption("b", function () {
-      ui.scenarioDescription.innerHTML = "b option clicked"
+    new EventOption("Leave it", function () {
+      ui.scenarioDescription.innerHTML = "You didn't make the best decision, but the strange feeling, and maybe your curiosity did not let you to leave the rock in the hollow. The shiny stone reveals its power. It's a rune! Congratulations on finding your first rune!"
       player1.gainExperience(2);
-      player1Inventory.receiveGold(15);
-      
+      player1Inventory.addItem(new Rune("./media/assets/rune1.png", 2, 4, "Damage: 2-4",2));
     }
     )
   ),
-  new Event("Test lvl 2/2",
-    "c or d", new EventOption("c", function () {
-      ui.scenarioDescription.innerHTML = "c option clicked";
-      player1.damage(2);
-      player1.gainExperience(1);
+  new Event("Familiar face?",
+    "Moving forward, gibberish words can be heard at the end of the tunnel. It sounds like an old greybeard, who you might have known from the past. Really familiar, but you just don't remember right now. It also sounds like he is moaning for help. Might be a trap? Maybe your mind plays tricks with you? ",
+    new EventOption("Ignore him", function () {
+      ui.scenarioDescription.innerHTML = "It seems like your mind plays tricks with you. When you reached the next room, there was no one there. On your way, you found some herbs.";
+      player1Inventory.addItem(new Herb("./media/assets/trurpore.png", "Combine herbs to make potions! Heals the player by <strong>5</strong> points.",0.1))
+      player1.gainExperience(3);
     }),
-    new EventOption("d", function () {
+    new EventOption("support him", function () {
       player1.gainExperience(2);
       player1Inventory.receiveGold(15);
       ui.scenarioDescription.innerHTML = "d option clicked"
