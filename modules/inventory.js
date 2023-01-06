@@ -41,11 +41,12 @@ export class InventoryItem {
 }
 
 export class Potion extends InventoryItem {
-    constructor(imageSrc, effect, description, weight) {
+    constructor(imageSrc, description, effect, weight) {
         const img = document.createElement("img");
-        img.src = imageSrc;
         super(img, weight, description);
+        img.src = imageSrc;
         this.effect = effect;
+        activateEffect(img, effect, img);
     }
 }
 
@@ -65,7 +66,7 @@ export class Herb extends InventoryItem {
         super(img, weight, description);
         img.src = imageSrc;
         this.effect = effect;
-        activateEffect(img, effect);
+        activateEffect(img, effect, img);
     }
 
     
@@ -90,31 +91,32 @@ function inventoryTooltipShow(item, description) {
     })
 }
 
-function activateEffect(item, effect) {
+function activateEffect(item, effect, domObject) {
     item.addEventListener("dblclick", function() {
         console.log(player1Inventory.items)
         effect()
-        let updatedInventory = removeItemAfterEffect(player1Inventory.items, player1Inventory.items[item])
-        console.log(updatedInventory)
-        
-        
+        removeItemAfterEffect(player1Inventory.items, item);
+        console.log(player1Inventory.items)
+        domObject.remove();
     })
 }
 
 function removeItemAfterEffect(array, value) {
    const index = array.indexOf(value);
-   if (index > -1) {
-    return array.splice(index, 1)
-   } else {
-    return console.log("wrong")
-   }
-    
+   (array.splice(index,1));
 }
-
+//imageSrc, description, effect, weight
 export let herbsAndEffects = {
-    trurpore: new Herb("./media/assets/trurpore.png", "<div>Trurpore</div> Heal +<strong>3</strong> points.", function(){player1.heal(3)}, 0.1),
-
-
+    trurpore: new Herb("./media/assets/trurpore.png", "Trurpore. +3HP, +2EXP", function(){player1.heal(3); player1.gainExperience(2)}, 0.1),
+    coccoraHat: new Herb("./media/assets/coccora_hat.png", "Coccora Hat. -2HP, +5EXP", function() { player1.damage(2), player1.gainExperience(5), 0.1} )
+}
+//imageSrc, minDamage, maxDamage, description, weight
+export let runes = {
+    smallRuneOfFireBolt: new Rune("./media/assets/rune1.png", 2, 4, "Small Rune of Firebolt 2-4DMG", 2),
+}
+//imageSrc, description, effect, weight
+export let potions = {
+    minorHealingPotion: new Potion("./media/assets/potion_of_minor_health.png", "Potion of Minor Healing +10HP", function() {player1.heal(10), 0.5})
 }
 
 export let player1Inventory = new Inventory()

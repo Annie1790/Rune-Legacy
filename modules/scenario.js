@@ -1,6 +1,6 @@
 import ui from "./ui.js";
 import { player1 } from "./player.js";
-import { player1Inventory,herbsAndEffects, Potion, Rune } from "./inventory.js";
+import { player1Inventory,herbsAndEffects,runes, potions} from "./inventory.js";
 
 class Event {
   constructor(name, description, option1, option2) {
@@ -46,33 +46,34 @@ export let tdLvl2 = [
     "Moving forward, a narrow and long hallway faces you. Anctient writings decorate the sandbrick walls, and dead insects, human remainings cover the floor. While examining the ancient writings, you recognize some of the words written in english. 'fire, ice, lightning'. That doesn't make sense. Right next to you, a small hollow can be found on the wall. You discover a small, slightly shiny rock fragment.",
     new EventOption("Examine the hollow", function () {
       ui.scenarioDescription.innerHTML = "You found something. Along with some gold, the shiny stone reveals its power. It's a rune! Congratulations on finding your first rune!";
-      player1Inventory.addItem(new Rune("./media/assets/rune1.png", 2, 4, "Damage: 2-4"));
+      player1Inventory.addItem(runes.smallRuneOfFireBolt);
       player1.gainExperience(3);
       player1Inventory.receiveGold(25);
     }),
     new EventOption("Leave it", function () {
       ui.scenarioDescription.innerHTML = "You didn't make the best decision, but the strange feeling, and maybe your curiosity did not let you to leave the rock in the hollow. The shiny stone reveals its power. It's a rune! Congratulations on finding your first rune!"
       player1.gainExperience(2);
-      player1Inventory.addItem(new Rune("./media/assets/rune1.png", 2, 4, "Damage: 2-4",2));
+      player1Inventory.addItem(runes.smallRuneOfFireBolt);
     }
     )
   ),
   new Event("Familiar face?",
-    "Moving forward, gibberish words can be heard at the end of the tunnel. It sounds like an old greybeard, who you might have known from the past. Really familiar, but you just don't remember right now. It also sounds like he is moaning for help. Might be a trap? Maybe your mind plays tricks with you? ",
-    new EventOption("Ignore him", function () {
-      ui.scenarioDescription.innerHTML = "It seems like your mind plays tricks with you. When you reached the next room, there was no one there. On your way, you found some herbs.";
-      player1Inventory.addItem(herbsAndEffects.trurpore)
+    "Getting closer to the end of the tunnel, you hear something. It sounds like someone you might have known him from the past. Familiar, but you don't remember right now who he could be. It also sounds like he is moaning for help. Might be a trap. Maybe your mind plays tricks on you? At the end of the tunnel, there are two ways to go: on the left, where the sound comes from, or on the right, which looks like another long tunnel. ",
+        new EventOption("Turn left", function () {
+      ui.scenarioDescription.innerHTML = "It seems like your mind, or something in the dungeon plays tricks with you. The empty room filled with mummified animal bodies and one human body. Next to him, you find some herbs, a potion, and gain experience. The room doesn't lead anywhere, so you decide to go back and turn right.";
+      player1Inventory.addItem(herbsAndEffects.trurpore);
+      player1Inventory.addItem(herbsAndEffects.coccoraHat);
+      player1Inventory.addItem(potions.minorHealingPotion);
       player1.gainExperience(3);
     }),
-    new EventOption("support him", function () {
+    new EventOption("Turn right", function () {
       player1.gainExperience(2);
-      player1Inventory.receiveGold(15);
-      ui.scenarioDescription.innerHTML = "d option clicked"
+      ui.scenarioDescription.innerHTML = "You decide to ignore the sound from the left direction and discover the tunnel. You gain experience. "
     }
     )
   ),
-  new Event("Test lvl 2/3",
-    "e or f", new EventOption("e", function () {
+  new Event("",
+    "Your journey continues at the end of the tunnel, which leads to a bigger, monstrous cave system. ", new EventOption("e", function () {
       ui.scenarioDescription.innerHTML = "e option clicked";
       player1.damage(2);
       player1.gainExperience(1);
