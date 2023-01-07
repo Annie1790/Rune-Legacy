@@ -54,6 +54,7 @@ export let tdLvl2 = [
       ui.scenarioDescription.innerHTML = "You didn't make the best decision, but the strange feeling, and maybe your curiosity did not let you to leave the rock in the hollow. The shiny stone reveals its power. It's a rune! Congratulations on finding your first rune!"
       player1.gainExperience(2);
       player1Inventory.addItem(runes.smallRuneOfFireBolt);
+      player1Inventory.addItem(runes.smallRuneOfFireBolt2);
     }
     )
   ),
