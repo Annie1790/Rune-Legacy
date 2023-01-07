@@ -2,6 +2,7 @@ import ui from "./ui.js";
 import { player1 } from "./player.js";
 
 let itemisEquipped = false;
+let itemIsUnequipped;
 
 export class Inventory {
     constructor() {
@@ -37,8 +38,6 @@ export class InventoryItem {
         this.description = description;
         inventoryTooltipShow(element, description);
     }
-
-
 }
 
 export class Potion extends InventoryItem {
@@ -56,8 +55,26 @@ export class Rune extends InventoryItem {
         const img = document.createElement("img");
         super(img, weight, description);
         img.src = imageSrc;
-        equipItem(img, minDamage, maxDamage);
-        
+        this.equipItem(img, minDamage, maxDamage);
+    }
+    equipItem(item, minDamage, maxDamage) {
+        item.addEventListener("dblclick", function () {
+            if (itemisEquipped === false) {
+                player1.changeMinAndMaxDamage(minDamage, maxDamage);
+                itemisEquipped = true;
+                itemIsUnequipped = item;
+                item.style.backgroundColor = "rgba(255, 153, 0, 0.534)";
+                item.style.borderRadius = "1em";
+            } else {
+                if (itemIsUnequipped === item) {
+                    player1.changeMinAndMaxDamage(0, 2)
+                    itemisEquipped = false;
+                    item.style.backgroundColor = "rgba(255, 153, 0, 0.0)";
+                } else {
+                    window.alert("You cannot equip two runes at a time!")
+                }
+            }
+        })
     }
 }
 //separate for later
@@ -71,20 +88,6 @@ export class Herb extends InventoryItem {
     }
 }
 
-function equipItem(item, minDamage, maxDamage) {
-    item.addEventListener("dblclick", function () {
-        if (itemisEquipped === false && isOneItemEquipped === true) {
-            player1.changeMinAndMaxDamage(minDamage, maxDamage);
-            itemisEquipped = true;
-            item.style.backgroundColor = "rgba(255, 153, 0, 0.534)";
-            item.style.borderRadius = "1em"
-        } else {
-                player1.changeMinAndMaxDamage(0,2)
-                itemisEquipped = false;
-                item.style.backgroundColor = "rgba(255, 153, 0, 0.0)";
-            }
-        }, )
-    }
 
 function inventoryTooltipShow(item, description) {
     item.addEventListener("mousemove", function (event) {
@@ -96,12 +99,10 @@ function inventoryTooltipShow(item, description) {
         ui.inventoryTooltip.style.left = `${x - 40}px`;
         ui.inventoryTooltip.style.top = `${y - 60}px`
         ui.inventoryTooltip.innerHTML = description;
-        console.log("in")
     })
 
     item.addEventListener("mouseleave", function () {
         ui.inventoryTooltip.style.display = "none";
-        console.log("out")
     })
 }
 
@@ -117,7 +118,7 @@ function activateEffect(item, effect, domObject) {
 
 function removeItemAfterEffect(array, value) {
     const index = array.indexOf(value);
-    (array.splice(index, 1));
+    array.splice(index, 1);
 }
 //imageSrc, description, effect, weight
 export let herbsAndEffects = {
@@ -127,7 +128,6 @@ export let herbsAndEffects = {
 //imageSrc, minDamage, maxDamage, description, weight
 export let runes = {
     smallRuneOfFireBolt: new Rune("./media/assets/rune1.png", 2, 4, "Small Rune of Firebolt 2-4DMG", 2),
-    smallRuneOfFireBolt2: new Rune("./media/assets/rune1.png", 6, 10, "Small Rune of Firebolt 6-10DMG", 2),
 }
 //imageSrc, description, effect, weight
 export let potions = {
@@ -135,4 +135,5 @@ export let potions = {
 }
 
 export let player1Inventory = new Inventory()
+
 
