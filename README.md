@@ -11,4 +11,6 @@ Character portrait: https://www.fantasy-faces.com/
 
 Weapons: https://rollforfantasy.com/tools/weapon-creator.php
 
+Icons: https://game-icons.net/
+
 Town name: https://www.fantasynamegenerators.com/town-descriptions.php

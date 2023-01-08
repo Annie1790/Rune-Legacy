@@ -1,6 +1,7 @@
 import ui from "./ui.js";
 import { player1 } from "./player.js";
 import { player1Inventory,herbsAndEffects,runes, potions} from "./inventory.js";
+import { fightScene } from "./fight.js";
 
 class Event {
   constructor(name, description, option1, option2) {
@@ -72,16 +73,14 @@ export let tdLvl2 = [
     }
     )
   ),
-  new Event("",
-    "Your journey continues at the end of the tunnel, which leads to a bigger, monstrous cave system. ", new EventOption("e", function () {
-      ui.scenarioDescription.innerHTML = "e option clicked";
-      player1.damage(2);
-      player1.gainExperience(1);
+  new Event("Fight with bats?",
+    "Your journey continues at the end of the tunnel, which leads to a bigger, monstrous cave system. Suddenly, you facing a large horde of bat colony. ", 
+    new EventOption("Fight!", function () {
+      fightScene()
     }),
-    new EventOption("f", function () {
+    new EventOption("Run away!", function () {
       player1.gainExperience(2);
-      player1Inventory.receiveGold(15);
-      ui.scenarioDescription.innerHTML = "f option clicked"
+      ui.scenarioDescription.innerHTML = "You decide to sneak through the cave system. You gain some experience points."
     }
     )
   ),

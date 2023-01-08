@@ -26,7 +26,7 @@
 
 
     <div class="scen-attr-box">
-        <div class="character-scenario-box frame">
+        <div class="character-scenario-box hide frame">
             <div class="character-scenario-description">
                 <h1 data-scenario-name></h1>
                 <p data-scenario-description> </p>
@@ -38,11 +38,29 @@
             </div>
         </div>
 
+        <div class="character-scenario-box frame ">
+            <div class="combat-screen">
+                <div>
+                    <img class="hide character-portrait portrait-frame portrait-female"
+                        src="./media/female_portrait.png" alt="Female player">
+                    <img class="hide character-portrait portrait-frame portrait-male" src="./media/male_portrait.png"
+                        alt="Male portrait">
+                    <p>Health: <div data-health>10</div> </p>
+                </div>
+                <div>
+                    <img src="./media/dagger_staff_combat.png" alt="combat sign">
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+
         <div class="character-attributes frame">
             <h1 data-character-name>Character Name</h1>
-            <img data-portrait-female class="hide character-portrait portrait-frame" src="./media/female_portrait.png"
+            <img class="hide character-portrait portrait-frame portrait-female" src="./media/female_portrait.png"
                 alt="Female player">
-            <img data-portrait-male class="hide character-portrait portrait-frame" src="./media/male_portrait.png"
+            <img class="hide character-portrait portrait-frame portrait-male" src="./media/male_portrait.png"
                 alt="Male portrait">
             <h2>Health:</h2>
             <div data-health>10</div>
