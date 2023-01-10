@@ -84,10 +84,8 @@ class Character {
     ui.characterLevel.innerHTML = this.level;
     ui.minDamage.innerHTML = this.minDamage;
     ui.maxDamage.innerHTML = this.maxDamage;
+    ui.healthDisplay.innerHTML = this.health;
   }
-
-
-
 }
 
 export let characterPortrait;
